@@ -19,7 +19,7 @@ body {
 .header {
     background-color: #2c3e50;
     color: white;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     position: fixed;
     top: 0;
     left: 0;
@@ -65,11 +65,11 @@ body {
 
 
 /*  */
-
 .hero {
     height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/restaurant.jpg") center/cover;
     margin-top: 80px;
+    padding-bottom: 5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -137,6 +137,7 @@ body {
 .section-title {
     text-align: center;
     font-size: 2.5rem;
+    margin-top: 2rem;
     margin-bottom: 1rem;
     color: #2c3e50;
 }
@@ -200,10 +201,7 @@ body {
 
 /*  */
 
-.about {
-    padding: 5rem 0;
-    background-color: white;
-}
+
 
 .about-content {
     display: grid;
@@ -235,7 +233,7 @@ body {
 /*  */
 
 .contact {
-    padding: 7rem 0;
+    padding: 5rem 0;
     background-color: #f8f9fa;
 }
 
@@ -293,4 +291,166 @@ body {
 .form-group select:focus {
     outline: none;
     border-color: #e74c3c;
+}
+
+/*  */
+
+
+:root {
+    --primary-color: #e74c3c;
+    --secondary-color: #2c3e50;
+    --accent-color: #3498db;
+    --light-bg: #f8f9fa;
+    --dark-text: #333;
+    --light-text: #666;
+    --border-radius: 8px;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    transition: var(--transition);
+}
+
+.section-title {
+    color: var(--secondary-color);
+}
+
+.menu-item {
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.menu,
+.about,
+.contact {
+    padding: 5rem 0;
+    background-color: white;
+}
+
+/*  */
+
+@media (max-width: 768px) {
+    .hero-content h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 85%;
+        text-align: center;
+    }
+
+    .about-content,
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .contact,
+    .menu,
+    .about {
+        padding: 2rem 0;
+    }
+}
+
+@media(max-width:480px) {
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .menu-item {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .contact,
+    .menu,
+    .about {
+        padding: 3rem 0;
+    }
+}
+
+/*  */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/*  */
+
+.hero-content {
+    animation: fadeInUp 1s ease-out;
+}
+
+.menu-item {
+    animation: fadeInUp 0.6s ease-out both;
+}
+
+.menu-item:nth-child(n) {
+    animation-delay: 0.1s;
+}
+
+/* 
+.menu-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.menu-item:nth-child(3) {
+    animation-delay: 0.3s;
+} */
+
+.about-image {
+    animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+/* .section-title {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.8s ease;
+} */
+
+.section-title.revealed {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.8s ease;
 }
